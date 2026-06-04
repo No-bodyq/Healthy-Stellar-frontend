@@ -7,11 +7,6 @@ import { useWalletStore } from '@/store/useWalletStore';
 import { STELLAR_CONFIG } from '@/lib/stellar';
 import { TransactionBuilder, Networks, Operation, Asset, Memo } from '@stellar/stellar-sdk';
 
-declare global {
-  interface Window {
-    freighter?: { signTransaction: (xdr: string, opts: object) => Promise<string> };
-  }
-}
 
 interface Props {
   patientAddress: string;
