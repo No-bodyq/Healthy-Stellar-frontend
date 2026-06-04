@@ -45,8 +45,8 @@ export default function MedicalRecordUpload({ patientAddress, onUploaded }: Prop
       formData.append('fileType', file.type);
       formData.append('contentHash', contentHash);
       formData.append('encryptedFile', new Blob([encryptedBuffer]), file.name);
-      formData.append('iv', new Blob([iv]));
-      formData.append('exportedKey', new Blob([exportedKey]));
+      formData.append('iv', new Blob([iv.buffer as ArrayBuffer]));
+      formData.append('exportedKey', new Blob([exportedKey as ArrayBuffer]));
 
       return uploadEncryptedRecord(formData);
     },

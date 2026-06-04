@@ -11,18 +11,6 @@ interface Props {
 
 type WalletOption = 'freighter' | 'albedo';
 
-declare global {
-  interface Window {
-    freighter?: {
-      isConnected: () => Promise<boolean>;
-      getPublicKey: () => Promise<string>;
-      getNetwork: () => Promise<string>;
-    };
-    albedo?: {
-      publicKey: (opts: object) => Promise<{ pubkey: string }>;
-    };
-  }
-}
 
 export default function ConnectWalletModal({ onClose }: Props) {
   const { setWallet, network } = useWalletStore();

@@ -13,11 +13,6 @@ import { STELLAR_CONFIG } from '@/lib/stellar';
 import { Doctor, TimeSlot, Appointment } from '@/types';
 import { TransactionBuilder, Networks, Operation, Asset } from '@stellar/stellar-sdk';
 
-declare global {
-  interface Window {
-    freighter?: { signTransaction: (xdr: string, opts: object) => Promise<string> };
-  }
-}
 
 type Step = 'search' | 'slots' | 'form' | 'confirmed';
 
